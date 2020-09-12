@@ -67,3 +67,39 @@ runThis()
 // const result = Promise.all([promise1,promise2,promise3]).then(data=>{
 //     console.log(data)
 // })
+
+async function getTodos() {
+  // fetch("https://jsonplaceholder.typicode.com/todos")
+  //   .then((response) => {
+  //     console.log(response)
+  //     if(response.status === 200){
+  //       console.log("Success")
+  //     }
+  //     return response.json()
+  //   })
+  //   .then((json) => {
+  //     console.log(json)
+  //     let output = ``
+  //     for (let i = 0; i < json.length; i++) {
+  //       const item = json[i]
+  //       output += `<li>${item.title}</li>`
+  //     }
+  //     document.getElementById("demo").innerHTML = `<ul>${output}</ul>`
+  //   })
+  //   .catch(err=>{
+  //     console.log(err)
+  //   })
+
+    const response = await fetch("https://jsonplaceholder.typicode.com/todos")
+    
+    const json = await response.json()
+
+    let output = ``
+      for (let i = 0; i < json.length; i++) {
+        const item = json[i]
+        output += `<li>${item.title}</li>`
+      }
+      document.getElementById("demo").innerHTML = `<ul>${output}</ul>`
+}
+
+// getTodos()
